@@ -135,6 +135,28 @@ class AES:
 
         return matrix2text(self.plain_state)
 
+    def encrypt_verbose(self, plaintext):
+        self.plain_state = text2matrix(plaintext)
+        
+        self.__add_round_key(self.plain_state, self.round_keys[:4])
+        
+        print(hex(matrix2text(self.plain_state)))
+
+        for i in range(1, 10):
+            self.__round_encrypt(self.plain_state, self.round_keys[4 * i : 4 * (i + 1)])
+            print("Round %d value:"%i, hex(matrix2text(self.plain_state)))
+
+        self.__sub_bytes(self.plain_state)
+        print("After Sub-Bytes:",hex( matrix2text(self.plain_state)))
+
+        self.__shift_rows(self.plain_state)
+        print("After Shift Rows:", hex(matrix2text(self.plain_state)))
+
+        self.__add_round_key(self.plain_state, self.round_keys[40:])
+        print("After Add RK:", hex(matrix2text(self.plain_state)))
+
+        return matrix2text(self.plain_state)
+
     def decrypt(self, ciphertext):
         self.cipher_state = text2matrix(ciphertext)
 
