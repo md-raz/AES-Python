@@ -81,7 +81,7 @@ def text2matrix(text):
         if i % 4 == 0:
             matrix.append([byte])
         else:
-            matrix[i / 4].append(byte)
+            matrix[i // 4].append(byte)
     return matrix
 
 
