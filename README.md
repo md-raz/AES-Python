@@ -1,9 +1,5 @@
 A pure Python implementation of [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 
-### TODO
-
-* Add 192 and 256 bit versions
-
 ### License
 
     Copyright (C) 2012 Bo Zhu http://about.bozhu.me
